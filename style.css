@@ -1,6 +1,3 @@
-/* ================= VARIABLES ================= */
-/* ================= MIXINS ================= */
-/* ================= GLOBAL ================= */
 * {
   margin: 0;
   padding: 0;
@@ -14,10 +11,8 @@ body {
   height: 100%;
   width: 100%;
   background: #0f0f10;
-  overflow: hidden;
 }
 
-/* ================= MAIN ================= */
 main {
   height: 82vh;
   padding: 4vw 6vw;
@@ -50,9 +45,6 @@ main .right .all-songs {
   flex: 1;
   overflow-y: auto;
   padding-right: 0.5vw;
-  /* ===== APPLE MUSIC SCROLLBAR ===== */
-  /* Custom scrollbar for Webkit browsers */
-  /* ===== SONG CARD ===== */
 }
 main .right .all-songs::-webkit-scrollbar {
   width: 6px;
@@ -109,7 +101,6 @@ main .right .all-songs .song-card h6 {
   color: rgba(255, 255, 255, 0.65);
 }
 
-/* ================= PLAYER ================= */
 .player {
   height: 18vh;
   background: rgba(20, 20, 22, 0.95);
@@ -186,32 +177,34 @@ main .right .all-songs .song-card h6 {
   cursor: pointer;
 }
 
-/* ================= MOBILE ================= */
 @media (max-width: 700px) {
   main {
+    height: 82vh;
     flex-direction: column;
     padding: 6vw;
   }
-  main .left {
+  .left {
     width: 70%;
-    margin: auto;
+    margin: 0 auto 4vw;
+    flex-shrink: 0;
   }
-  main .right {
+  .right {
     width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
   }
-  main .right h3 {
+  .right h3 {
     text-align: center;
     font-size: 6vw;
+    flex-shrink: 0;
   }
-  .player {
-    gap: 6vw;
-  }
-  .player .controls button {
-    height: 48px;
-    width: 48px;
-  }
-  .player .controls button i {
-    font-size: 20px;
+  .right .all-songs {
+    flex: 1;
+    overflow-y: auto;
+    min-height: 0;
+    -webkit-overflow-scrolling: touch;
   }
   .player .volume {
     display: none;
