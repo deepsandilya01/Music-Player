@@ -1,27 +1,28 @@
-# 🎵 Spotify-Style Music Player
+# 🎵 Apple Music–Style Music Player
 
-A modern **Spotify-inspired Music Player** built using **HTML, SCSS, and Vanilla JavaScript**.  
-This project focuses on **clean UI/UX**, smooth animations, and real-world audio player functionality.
+A modern **Apple Music–inspired Music Player** built using **HTML, SCSS, and Vanilla JavaScript**.  
+This project focuses on **clean UI, smooth animations, and real-world audio player functionality** with a premium Apple-like feel.
 
 ---
 
-## 🚀 Live Preview
-👉 (Add your GitHub Pages / Netlify link here)
+## 🚀 Live Demo
+👉 (Add your live link here – GitHub Pages / Netlify)
 
 ---
 
 ## ✨ Features
 
-- 🎧 Spotify-style dark UI
-- 🟢 Active song highlight
-- ▶️ Play / Pause functionality
-- ⏭️ Next & Previous controls
+- 🍎 Apple Music–style clean UI
+- 🎧 Glassmorphism player bar
+- ▶️ Play / Pause music
+- ⏭️ Next & Previous track control
+- 🎵 Click-to-play song list
 - ⏱️ Real-time progress bar with seek
-- 🔊 Volume control (+ / – & slider)
+- 🔊 Volume control (slider + buttons)
 - 🖼️ Dynamic album artwork
-- 🎞️ Smooth animations & transitions
-- 📱 Fully responsive design
+- 🎞️ Smooth hover & scale animations
 - 🎨 Custom styled scrollbar (SCSS)
+- 📱 Fully responsive design
 
 ---
 
@@ -29,7 +30,7 @@ This project focuses on **clean UI/UX**, smooth animations, and real-world audio
 
 - **HTML5** – Structure
 - **SCSS (Sass)** – Styling & UI architecture
-- **Vanilla JavaScript** – Logic & Audio API
+- **Vanilla JavaScript** – Logic & DOM handling
 - **HTML5 Audio API** – Music playback
 
 ---
@@ -37,7 +38,7 @@ This project focuses on **clean UI/UX**, smooth animations, and real-world audio
 ## 📂 Project Structure
 
 ```txt
-music-player/
+apple-music-player/
 │
 ├── index.html
 ├── style.scss
