@@ -1,0 +1,278 @@
+/* ================= VARIABLES ================= */
+
+$bg-main: #0f0f10;
+$bg-player: rgba(20, 20, 22, 0.95);
+$card-bg: rgba(255, 255, 255, 0.05);
+$card-hover: rgba(255, 255, 255, 0.1);
+$accent: #ff375f;
+$text-dim: rgba(255, 255, 255, 0.65);
+
+/* ================= MIXINS ================= */
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ================= GLOBAL ================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  color: #fff;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background: $bg-main;
+  overflow: hidden;
+}
+
+/* ================= MAIN ================= */
+
+main {
+  height: calc(100vh - 18vh);
+  padding: 4vw 6vw;
+  display: flex;
+  gap: 4vw;
+
+  .left {
+    width: 26%;
+    aspect-ratio: 1 / 1;
+    border-radius: 1.5vw;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
+    transition: transform 0.6s ease;
+
+    &.playing {
+      transform: scale(1.04);
+    }
+  }
+
+  .right {
+    width: 74%;
+    display: flex;
+    flex-direction: column;
+
+    h3 {
+      font-size: clamp(22px, 2.4vw, 36px);
+      margin-bottom: 2vw;
+      font-weight: 600;
+    }
+
+    .all-songs {
+      flex: 1;
+      overflow-y: auto;
+      padding-right: 0.5vw;
+
+      /* ===== APPLE MUSIC SCROLLBAR ===== */
+      /* Custom scrollbar for Webkit browsers */
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: transparent;
+        margin: 8px 0;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 55, 95, 0.9),
+          rgba(255, 55, 95, 0.4)
+        );
+        border-radius: 20px;
+        transition: all 0.3s ease;
+      }
+
+      &::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 55, 95, 1),
+          rgba(255, 55, 95, 0.7)
+        );
+      }
+
+      /* ===== SONG CARD ===== */
+      .song-card {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1vw 1.2vw;
+        border-radius: 0.9vw;
+        margin-bottom: 0.7vw;
+        background: $card-bg;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &.active {
+          background: rgba(255, 55, 95, 0.25);
+        }
+
+        &:hover {
+          background: $card-hover;
+          transform: translateX(6px);
+        }
+
+        .part1 {
+          display: flex;
+          align-items: center;
+          gap: 1vw;
+
+          img {
+            height: 56px;
+            width: 56px;
+            border-radius: 0.6vw;
+            object-fit: cover;
+          }
+
+          h2 {
+            font-size: 15px;
+            font-weight: 500;
+          }
+        }
+
+        h6 {
+          font-size: 12px;
+          color: $text-dim;
+        }
+      }
+    }
+  }
+}
+
+/* ================= PLAYER ================= */
+
+.player {
+  height: 18vh;
+  background: $bg-player;
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  position: relative;
+  @include flex-center;
+  gap: 3vw;
+
+  .time {
+    position: absolute;
+    top: 1vh;
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+    font-size: 12px;
+    color: $text-dim;
+
+    #progress {
+      width: 240px;
+      height: 4px;
+      cursor: pointer;
+      accent-color: $accent;
+    }
+  }
+
+  .controls {
+    display: flex;
+    gap: 2vw;
+
+    button {
+      height: 56px;
+      width: 56px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255, 255, 255, 0.12);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      @include flex-center;
+
+      i {
+        font-size: 22px;
+      }
+
+      &:hover {
+        background: rgba(255, 55, 95, 0.35);
+        transform: scale(1.1);
+      }
+
+      &:active {
+        transform: scale(0.95);
+      }
+    }
+  }
+
+  .volume {
+    position: absolute;
+    right: 3vw;
+    display: flex;
+    align-items: center;
+    gap: 0.8vw;
+
+    i {
+      font-size: 20px;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: 0.2s;
+
+      &:hover {
+        opacity: 1;
+        color: $accent;
+      }
+    }
+
+    input {
+      width: 90px;
+      height: 4px;
+      accent-color: $accent;
+      cursor: pointer;
+    }
+  }
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 700px) {
+  main {
+    flex-direction: column;
+    padding: 6vw;
+
+    .left {
+      width: 70%;
+      margin: auto;
+    }
+
+    .right {
+      width: 100%;
+
+      h3 {
+        text-align: center;
+        font-size: 6vw;
+      }
+    }
+  }
+
+  .player {
+    gap: 6vw;
+
+    .controls button {
+      height: 48px;
+      width: 48px;
+
+      i {
+        font-size: 20px;
+      }
+    }
+
+    .volume {
+      display: none;
+    }
+
+    .time #progress {
+      width: 160px;
+    }
+  }
+}

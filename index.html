@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Player</title>
+
+    <link rel="shortcut icon"
+        href="https://purepng.com/public/uploads/large/purepng.com-music-iconsymbolsiconsapple-iosiosios-8-iconsios-8-721522596085b6osz.png" />
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <main>
+        <div class="left"></div>
+
+        <div class="right">
+            <h3>All Songs</h3>
+            <div class="all-songs"></div>
+        </div>
+    </main>
+
+    <div class="player">
+        <div class="time">
+            <span id="currentTime">0:00</span>
+            <input type="range" id="progress" value="0" />
+            <span id="totalTime">0:00</span>
+        </div>
+
+        <div class="controls">
+            <button id="backward" title="Previous"><i class="ri-skip-back-fill"></i></button>
+            <button id="play" title="Play"><i class="ri-play-fill"></i></button>
+            <button id="forward" title="Next"><i class="ri-skip-forward-fill"></i></button>
+        </div>
+
+        <div class="volume">
+            <i id="volDown" class="ri-volume-down-fill"></i>
+            <input type="range" id="volumeRange" min="0" max="1" step="0.01" value="1" />
+            <i id="volUp" class="ri-volume-up-fill"></i>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
